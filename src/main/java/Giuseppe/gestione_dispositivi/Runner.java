@@ -57,6 +57,9 @@ public class Runner implements CommandLineRunner {
 		dispositivoSrv.create(dipositivo3);
 		dispositivoSrv.create(dipositivo4);
 
+		// per assegnare i dispositivi agli utenti basta utlizzare il metodo put su
+		// postman
+
 	}
 
 }
