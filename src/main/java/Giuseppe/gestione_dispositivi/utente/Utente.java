@@ -30,16 +30,16 @@ public class Utente implements UserDetails {
 	@Id
 	@GeneratedValue
 	private UUID id;
-	@Column(nullable = false, unique = true)
-	private String username;
-	@Column(nullable = false)
-	private String nome;
 	@Column(nullable = false)
 	private String cognome;
 	@Column(nullable = false, unique = true)
 	private String email;
+	@Column(nullable = false)
+	private String nome;
 
 	private String password;
+	@Column(nullable = false, unique = true)
+	private String username;
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
@@ -48,9 +48,9 @@ public class Utente implements UserDetails {
 
 	public Utente(String username, String nome, String cognome, String email, String password) {
 		this.username = username;
-		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
+		this.nome = nome;
 		this.password = password;
 		this.role = role.USER;
 	}

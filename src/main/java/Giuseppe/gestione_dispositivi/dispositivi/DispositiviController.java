@@ -64,7 +64,7 @@ public class DispositiviController {
 		dispositiviSrv.findByIdAndDelete(utenteId);
 	}
 
-	@PostMapping("/{dispositiviId}/assegna/{utenteId}")
+	@PutMapping("/{dispositiviId}/assegna/{utentiId}")
 	public ResponseEntity<String> assegnaDispositivoAUtente(@PathVariable UUID dispositivoId,
 			@PathVariable UUID utenteId) {
 		dispositiviAssegnatiService.assegnaDispositivo(utenteId, dispositivoId);

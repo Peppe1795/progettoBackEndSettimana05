@@ -6,10 +6,10 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class UtenteRequestPayload {
-	private String username;
-	private String nome;
 	private String cognome;
 	private String email;
+	private String nome;
 	private String password;
+	private String username;
 
 }

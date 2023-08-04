@@ -36,7 +36,6 @@ public class JwtAuthController {
 	public ResponseEntity<String> login(@RequestBody UtenteLoginPayload body) {
 
 		Utente user = utenteService.findByEmail(body.getEmail());
-
 		if (body.getPassword().equals(user.getPassword())) {
 
 			String token = jwtTools.createToken(user);

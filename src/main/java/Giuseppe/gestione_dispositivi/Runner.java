@@ -1,7 +1,6 @@
 package Giuseppe.gestione_dispositivi;
 
 import java.util.Locale;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -39,7 +38,7 @@ public class Runner implements CommandLineRunner {
 			String email = faker.internet().emailAddress();
 			String username = (nome + cognome).toLowerCase().trim();
 			String password = "3456";
-			UtenteRequestPayload utente = new UtenteRequestPayload(nome, cognome, email, username, password);
+			UtenteRequestPayload utente = new UtenteRequestPayload(cognome, email, nome, password, username);
 			// utenteSrv.create(utente);
 
 		}
@@ -53,13 +52,17 @@ public class Runner implements CommandLineRunner {
 		DispositiviRequestPayload dipositivo4 = new DispositiviRequestPayload(StatoDispositivo.IN_MANUTENZIONE,
 				TipoDispositivo.LAPTOP);
 
-		dispositivoSrv.create(dipositivo1);
-		dispositivoSrv.create(dipositivo2);
-		dispositivoSrv.create(dipositivo3);
-		dispositivoSrv.create(dipositivo4);
+//		dispositivoSrv.create(dipositivo1);
+//		dispositivoSrv.create(dipositivo2);
+//		dispositivoSrv.create(dipositivo3);
+//		dispositivoSrv.create(dipositivo4);
 
-		dispositiviAssegnatiService.assegnaDispositivo(UUID.fromString("32a8de46-11a3-44fb-a2e1-9dd92d454146"),
-				UUID.fromString("538bcba2-2e65-40d2-a5fd-32bccdbee914"));
+		// il metodo assegna dispositivo è commentato perche va runnato dopo aver creato
+		// un utente e un dispositivo.
+		// dopodiche basta inserire gli uuid nel metodo sia di utente che di dispostivo.
+
+//		dispositiviAssegnatiService.assegnaDispositivo(UUID.fromString("32a8de46-11a3-44fb-a2e1-9dd92d454146"),
+//				UUID.fromString("538bcba2-2e65-40d2-a5fd-32bccdbee914"));
 
 	}
 
