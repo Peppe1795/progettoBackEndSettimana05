@@ -57,13 +57,6 @@ public class Runner implements CommandLineRunner {
 		dispositivoSrv.create(dipositivo3);
 		dispositivoSrv.create(dipositivo4);
 
-		// il metodo assegna dispositivo è commentato perche va runnato dopo aver creato
-		// un utente e un dispositivo.
-		// dopodiche basta inserire gli uuid nel metodo sia di utente che di dispostivo.
-
-//		dispositiviAssegnatiService.assegnaDispositivo(UUID.fromString("32a8de46-11a3-44fb-a2e1-9dd92d454146"),
-//				UUID.fromString("538bcba2-2e65-40d2-a5fd-32bccdbee914"));
-
 	}
 
 }
