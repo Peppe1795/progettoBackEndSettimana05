@@ -5,6 +5,7 @@ import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,15 +17,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import Giuseppe.gestione_dispositivi.dispositivoAssegnato.DispositiviAssegnatiService;
+
 @RestController
 @RequestMapping("/dispositivi")
 public class DispositiviController {
 	private final DispositiviService dispositiviSrv;
+	private final DispositiviAssegnatiService dispositiviAssegnatiService;
 
 	@Autowired
-	private DispositiviController(DispositiviService dispositiviSrv) {
+	private DispositiviController(DispositiviService dispositiviSrv,
+			DispositiviAssegnatiService dispositiviAssegnatiService) {
 		super();
 		this.dispositiviSrv = dispositiviSrv;
+		this.dispositiviAssegnatiService = dispositiviAssegnatiService;
 	}
 
 	@GetMapping
@@ -56,6 +62,13 @@ public class DispositiviController {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deleteDispositivo(@PathVariable UUID utenteId) {
 		dispositiviSrv.findByIdAndDelete(utenteId);
+	}
+
+	@PostMapping("/{dispositiviId}/assegna/{utenteId}")
+	public ResponseEntity<String> assegnaDispositivoAUtente(@PathVariable UUID dispositivoId,
+			@PathVariable UUID utenteId) {
+		dispositiviAssegnatiService.assegnaDispositivo(utenteId, dispositivoId);
+		return ResponseEntity.ok("Dispositivo assegnato con successo all'utente.");
 	}
 
 }

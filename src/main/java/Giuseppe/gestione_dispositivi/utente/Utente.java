@@ -8,12 +8,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import Giuseppe.gestione_dispositivi.dispositivi.Dispositivi;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -40,6 +42,9 @@ public class Utente implements UserDetails {
 	private String password;
 	@Enumerated(EnumType.STRING)
 	private Role role;
+
+	@OneToMany(mappedBy = "utente")
+	private List<Dispositivi> dispositiviAssegnati;
 
 	public Utente(String username, String nome, String cognome, String email, String password) {
 		this.username = username;
