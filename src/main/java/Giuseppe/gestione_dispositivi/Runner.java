@@ -8,10 +8,7 @@ import org.springframework.stereotype.Component;
 
 import com.github.javafaker.Faker;
 
-import Giuseppe.gestione_dispositivi.dispositivi.DispositiviRequestPayload;
 import Giuseppe.gestione_dispositivi.dispositivi.DispositiviService;
-import Giuseppe.gestione_dispositivi.dispositivi.StatoDispositivo;
-import Giuseppe.gestione_dispositivi.dispositivi.TipoDispositivo;
 import Giuseppe.gestione_dispositivi.utente.UtenteRequestPayload;
 import Giuseppe.gestione_dispositivi.utente.UtenteService;
 
@@ -35,23 +32,23 @@ public class Runner implements CommandLineRunner {
 			String username = (nome + cognome).toLowerCase().trim();
 			String password = "3456";
 			UtenteRequestPayload utente = new UtenteRequestPayload(nome, cognome, email, username, password);
-			utenteSrv.create(utente);
+			// utenteSrv.create(utente);
 
 		}
-
-		DispositiviRequestPayload dipositivo1 = new DispositiviRequestPayload(StatoDispositivo.ASSEGNATO,
-				TipoDispositivo.LAPTOP);
-		DispositiviRequestPayload dipositivo2 = new DispositiviRequestPayload(StatoDispositivo.DISMESSO,
-				TipoDispositivo.SMARTPHONE);
-		DispositiviRequestPayload dipositivo3 = new DispositiviRequestPayload(StatoDispositivo.DISPONIBILE,
-				TipoDispositivo.TABLET);
-		DispositiviRequestPayload dipositivo4 = new DispositiviRequestPayload(StatoDispositivo.IN_MANUTENZIONE,
-				TipoDispositivo.LAPTOP);
-
-		dispositivoSrv.create(dipositivo1);
-		dispositivoSrv.create(dipositivo2);
-		dispositivoSrv.create(dipositivo3);
-		dispositivoSrv.create(dipositivo4);
+//
+//		DispositiviRequestPayload dipositivo1 = new DispositiviRequestPayload(StatoDispositivo.ASSEGNATO,
+//				TipoDispositivo.LAPTOP);
+//		DispositiviRequestPayload dipositivo2 = new DispositiviRequestPayload(StatoDispositivo.DISMESSO,
+//				TipoDispositivo.SMARTPHONE);
+//		DispositiviRequestPayload dipositivo3 = new DispositiviRequestPayload(StatoDispositivo.DISPONIBILE,
+//				TipoDispositivo.TABLET);
+//		DispositiviRequestPayload dipositivo4 = new DispositiviRequestPayload(StatoDispositivo.IN_MANUTENZIONE,
+//				TipoDispositivo.LAPTOP);
+//
+//		dispositivoSrv.create(dipositivo1);
+//		dispositivoSrv.create(dipositivo2);
+//		dispositivoSrv.create(dipositivo3);
+//		dispositivoSrv.create(dipositivo4);
 	}
 
 }
