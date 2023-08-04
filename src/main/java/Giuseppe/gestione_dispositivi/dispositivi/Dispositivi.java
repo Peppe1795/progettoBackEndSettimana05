@@ -27,7 +27,6 @@ public class Dispositivi {
 	private TipoDispositivo tipoDispositivo;
 
 	public Dispositivi(StatoDispositivo statoDispositivo, TipoDispositivo tipoDispositivo) {
-		super();
 		this.statoDispositivo = statoDispositivo;
 		this.tipoDispositivo = tipoDispositivo;
 	}
