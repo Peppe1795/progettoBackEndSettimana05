@@ -39,7 +39,7 @@ public class Runner implements CommandLineRunner {
 			String username = (nome + cognome).toLowerCase().trim();
 			String password = "3456";
 			UtenteRequestPayload utente = new UtenteRequestPayload(email, cognome, nome, password, username);
-			// utenteSrv.create(utente);
+			utenteSrv.create(utente);
 
 		}
 
