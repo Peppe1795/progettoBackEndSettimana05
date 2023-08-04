@@ -10,4 +10,6 @@ public class UtenteRequestPayload {
 	private String nome;
 	private String cognome;
 	private String email;
+	private String password;
+
 }

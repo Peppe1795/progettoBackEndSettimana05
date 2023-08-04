@@ -1,5 +1,11 @@
 package Giuseppe.gestione_dispositivi.dispositivi;
 
-public class DispositiviRequestPayload {
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
+@Getter
+@AllArgsConstructor
+public class DispositiviRequestPayload {
+	private StatoDispositivo statoDispositivo;
+	private TipoDispositivo tipoDispositivo;
 }
