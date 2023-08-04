@@ -18,11 +18,11 @@ public class DispositiviAssegnatiService {
 	@Autowired
 	private DispositiviRepository dispositivoRepository;
 
-	public void assegnaDispositivo(UUID utenteId, UUID dispositivoId) {
-		Utente utente = utenteRepository.findById(utenteId)
-				.orElseThrow(() -> new IllegalArgumentException("Utente non trovato con ID: " + utenteId));
-		Dispositivi dispositivo = dispositivoRepository.findById(dispositivoId)
-				.orElseThrow(() -> new IllegalArgumentException("Dispositivo non trovato con ID: " + dispositivoId));
+	public void assegnaDispositivo(UUID dispositiviId, UUID utentiId) {
+		Utente utente = utenteRepository.findById(utentiId)
+				.orElseThrow(() -> new IllegalArgumentException("Utente non trovato con ID: " + utentiId));
+		Dispositivi dispositivo = dispositivoRepository.findById(dispositiviId)
+				.orElseThrow(() -> new IllegalArgumentException("Dispositivo non trovato con ID: " + dispositiviId));
 		dispositivo.setUtente(utente);
 		dispositivoRepository.save(dispositivo);
 	}

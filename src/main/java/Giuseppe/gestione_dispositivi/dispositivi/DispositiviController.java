@@ -65,9 +65,9 @@ public class DispositiviController {
 	}
 
 	@PutMapping("/{dispositiviId}/assegna/{utentiId}")
-	public ResponseEntity<String> assegnaDispositivoAUtente(@PathVariable UUID dispositivoId,
-			@PathVariable UUID utenteId) {
-		dispositiviAssegnatiService.assegnaDispositivo(utenteId, dispositivoId);
+	public ResponseEntity<String> assegnaDispositivoAUtente(@PathVariable UUID dispositiviId,
+			@PathVariable UUID utentiId) {
+		dispositiviAssegnatiService.assegnaDispositivo(dispositiviId, utentiId);
 		return ResponseEntity.ok("Dispositivo assegnato con successo all'utente.");
 	}
 
