@@ -48,4 +48,7 @@ public class DispositiviService {
 		dispositiviRepo.delete(found);
 	}
 
+	public Dispositivi saveDispositivo(Dispositivi dispositivo) {
+		return dispositiviRepo.save(dispositivo);
+	}
 }

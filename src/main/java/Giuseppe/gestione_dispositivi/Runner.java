@@ -38,7 +38,7 @@ public class Runner implements CommandLineRunner {
 			String email = faker.internet().emailAddress();
 			String username = (nome + cognome).toLowerCase().trim();
 			String password = "3456";
-			UtenteRequestPayload utente = new UtenteRequestPayload(cognome, email, nome, password, username);
+			UtenteRequestPayload utente = new UtenteRequestPayload(email, cognome, nome, password, username);
 			// utenteSrv.create(utente);
 
 		}
@@ -52,10 +52,10 @@ public class Runner implements CommandLineRunner {
 		DispositiviRequestPayload dipositivo4 = new DispositiviRequestPayload(StatoDispositivo.IN_MANUTENZIONE,
 				TipoDispositivo.LAPTOP);
 
-//		dispositivoSrv.create(dipositivo1);
-//		dispositivoSrv.create(dipositivo2);
-//		dispositivoSrv.create(dipositivo3);
-//		dispositivoSrv.create(dipositivo4);
+		dispositivoSrv.create(dipositivo1);
+		dispositivoSrv.create(dipositivo2);
+		dispositivoSrv.create(dipositivo3);
+		dispositivoSrv.create(dipositivo4);
 
 		// il metodo assegna dispositivo è commentato perche va runnato dopo aver creato
 		// un utente e un dispositivo.

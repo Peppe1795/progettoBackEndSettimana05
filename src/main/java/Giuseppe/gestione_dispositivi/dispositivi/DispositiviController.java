@@ -64,11 +64,10 @@ public class DispositiviController {
 		dispositiviSrv.findByIdAndDelete(utenteId);
 	}
 
-	@PutMapping("/{dispositiviId}/assegna/{utentiId}")
-	public ResponseEntity<String> assegnaDispositivoAUtente(@PathVariable UUID dispositiviId,
-			@PathVariable UUID utentiId) {
-		dispositiviAssegnatiService.assegnaDispositivo(dispositiviId, utentiId);
-		return ResponseEntity.ok("Dispositivo assegnato con successo all'utente.");
+	@PutMapping("/{dId}/assegna/{uId}")
+	public ResponseEntity<String> assegnaDispositivo(@PathVariable UUID dId, @PathVariable UUID uId) {
+		String result = dispositiviAssegnatiService.assegnaDispositivo(uId, dId);
+		return ResponseEntity.ok(result);
 	}
 
 }
